@@ -1,55 +1,139 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  Sync Impact Report
+  ==================
+  Version change: initial → 1.0.0
+  Modified principles: N/A (initial version)
+  Added sections:
+    - Code Quality (TypeScript strict, functional components, naming conventions)
+    - TDD Rules (Vitest + React Testing Library, test-first discipline)
+    - Privacy & Legal (no client-side PII, WhatsApp/Maps guidelines, privacy policy)
+  Removed sections: N/A
+  Templates requiring updates:
+    - plan-template.md: ✅ Constitution Check section aligns with new principles
+    - spec-template.md: ✅ Requirements section accommodates privacy/technical constraints
+    - tasks-template.md: ✅ Test-first discipline maps to TDD requirements
+  Follow-up TODOs: None
+-->
+
+# Farmhouse Website Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**TypeScript Strict Mode**
+- All code MUST use `strict: true` in tsconfig.json
+- No `any` types without explicit justification and documentation
+- Strict equality (`===`) required, no implicit type coercion
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Functional Components Only**
+- All React components MUST be functional (no class components)
+- Hooks used for all state and side effects
+- Components follow single responsibility principle
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Naming Conventions**
+- Components and types: PascalCase (e.g., `FarmhouseHero`, `ContactForm`)
+- Variables and functions: camelCase (e.g., `formData`, `handleSubmit`)
+- Constants: UPPER_SNAKE_CASE (e.g., `WHATSAPP_COUNTRY_CODE`)
+- Magic strings and numbers MUST be extracted to `constants.ts`
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+**Single Responsibility**
+- Each component/function MUST have one clear purpose
+- Large components MUST be split into smaller, composable units
+- Helper functions extracted when reused or when complexity exceeds 20 lines
 
-### [PRINCIPLE_6_NAME]
+**Rationale**: Consistent code quality reduces cognitive load, enables faster onboarding, and reduces bugs from ambiguous patterns.
 
+### II. Test-First Development (NON-NEGOTIABLE)
 
-[PRINCIPLE__DESCRIPTION]
+**TDD Mandate**
+- Tests MUST be written before feature implementation
+- Tests MUST fail initially (red phase) before implementation (green phase)
+- Refactoring (refactor phase) only after passing tests
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Test File Organization**
+- Test files colocated: `component.test.tsx` beside `component.tsx`
+- Test structure mirrors source structure
+- Test files named identically with `.test` suffix
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Test Coverage Requirements**
+- Happy path coverage for all public APIs
+- Edge case handling (empty states, invalid inputs, boundary conditions)
+- Null/undefined safety for all asynchronous operations
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Testing Stack**
+- Vitest as primary test runner
+- React Testing Library for component testing
+- No component shipped without passing tests
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Rationale**: Test-first development catches bugs early, enables confident refactoring, and serves as living documentation. The non-negotiable status ensures quality is non-negotiable.
+
+### III. Privacy & Legal Compliance
+
+**No Client-Side PII Storage**
+- NO localStorage or sessionStorage for personally identifiable information
+- NO cookies for user data persistence
+- All user data processing MUST occur server-side or with explicit consent
+
+**Communication Links**
+- WhatsApp links MUST use only phone number + pre-filled text, no tracking parameters
+- Google Maps embeds MUST use iframe-only approach (no Maps JS API key exposure)
+- External links opened with `rel="noopener noreferrer"` when using `target="_blank"`
+
+**Legal Pages**
+- Privacy Policy page REQUIRED at `/privacy` route
+- Cookie consent banner required only if analytics are added later
+- Terms of Service page required if user accounts or transactions involved
+
+**Data Handling**
+- Pre-filled form data cleared after submission
+- No third-party analytics added without privacy review
+- Error messages MUST NOT expose sensitive system details
+
+**Rationale**: Privacy by design protects users and the business from legal liability and reputational damage. Farmhouse website handles guest inquiries and must demonstrate responsible data stewardship.
+
+### IV. Git & Commit Discipline
+
+**Commit Format**
+- Format: `feat|fix|chore: short description`
+- `feat`: New features (minors)
+- `fix`: Bug fixes (patches)
+- `chore`: Maintenance tasks (documentation, config, deps)
+
+**Feature Scope**
+- ONE feature per commit (atomic changes)
+- Multiple commits allowed within a feature branch
+- Breaking changes flagged in commit message body
+
+**Branch Naming**
+- Feature branches: `[###-feature-name]` format
+- Issue reference optional for small changes
+- Consistent naming enables automated tooling
+
+**Rationale**: Clean commit history enables rapid debugging, reliable rollbacks, and clear audit trail of project evolution.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**Constitution Authority**
+- This constitution supersedes all other development practices for this project
+- All feature specifications MUST pass constitution review before implementation
+- Violations require explicit justification in plan.md Complexity Tracking table
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment Process**
+- Propose change via GitHub issue or pull request
+- Constitution changes require explicit version bump
+- Breaking changes (MAJOR version) require team review and migration plan
+- All amendments must update this file with date and version
+
+**Versioning Policy**
+- MAJOR: Backward-incompatible principle removals or redefinitions
+- MINOR: New principles added or existing principles expanded
+- PATCH: Clarifications, wording improvements, non-semantic fixes
+
+**Compliance Review**
+- All PRs MUST verify constitution compliance
+- Code review checklist includes: strict mode, test coverage, naming conventions
+- Privacy review required for any data-related feature
+- Automated checks (ESLint, TypeScript) enforce technical constraints
+
+**Version**: 1.0.0 | **Ratified**: 2026-06-10 | **Last Amended**: 2026-06-10
