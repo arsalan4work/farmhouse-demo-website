@@ -24,12 +24,12 @@ description: "Task list for Farmhouse Website implementation"
 
 **⚠️ CRITICAL**: No component work can begin until this phase is complete
 
-- [ ] T01 Create `website/src/lib/constants.ts` with PHONE, PRICES, FACILITIES, MAP_URL (extract magic strings)
-- [ ] T02 [P] Create `website/src/lib/wa.ts` with `buildWhatsAppURL(phone, msg)` function
-- [ ] T03 [P] Create `website/tests/wa.test.ts` with happy path, edge case, null/empty state coverage
-- [ ] T04 [P] Create `website/tests/constants.test.ts` for pricing/facilities validation
-- [ ] T05 [P] Install dependencies: `framer-motion`, `lucide-react`, `@types/lucide-react`
-- [ ] T06 [P] Configure `next/font` in `website/src/lib/fonts.ts` with Playfair Display (display) + Inter (body)
+- [x] T01 Create `website/src/lib/constants.ts` with PHONE, PRICES, FACILITIES, MAP_URL (extract magic strings)
+- [x] T02 [P] Create `website/src/lib/wa.ts` with `buildWhatsAppURL(phone, msg)` function
+- [x] T03 [P] Create `website/tests/wa.test.ts` with happy path, edge case, null/empty state coverage
+- [x] T04 [P] Create `website/tests/constants.test.ts` for pricing/facilities validation
+- [x] T05 [P] Install dependencies: `framer-motion`, `lucide-react`, `@types/lucide-react`
+- [x] T06 [P] Configure `next/font` in `website/src/lib/fonts.ts` with Playfair Display (display) + Inter (body)
 
 **Checkpoint**: Foundation ready - constants, utilities, and dependencies in place
 
@@ -39,13 +39,13 @@ description: "Task list for Farmhouse Website implementation"
 
 **Purpose**: Site-wide structural components used on every page
 
-- [ ] T07 Create `website/src/components/layout/Navbar.tsx` with logo, nav links, WA "Book Now" button, mobile drawer
-- [ ] T08 [P] Create `website/src/components/layout/Navbar.test.tsx` testing desktop/mobile rendering and click interactions
-- [ ] T09 Create `website/src/components/layout/Footer.tsx` with 3-column layout (links | contact | map embed)
-- [ ] T10 [P] Create `website/src/components/layout/Footer.test.tsx` testing contact display and map iframe
-- [ ] T11 Create `website/src/components/shared/FloatingWhatsAppButton.tsx` (fixed bottom-right, tooltip on hover)
-- [ ] T12 [P] Create `website/src/components/shared/FloatingWhatsAppButton.test.tsx` testing visibility, tooltip, click handler
-- [ ] T13 Create `website/src/app/layout.tsx` wiring Navbar, Footer, FloatingWA around children
+- [x] T07 Create `website/src/components/layout/Navbar.tsx` with logo, nav links, WA "Book Now" button, mobile drawer
+- [x] T08 [P] Create `website/src/components/layout/Navbar.test.tsx` testing desktop/mobile rendering and click interactions
+- [x] T09 Create `website/src/components/layout/Footer.tsx` with 3-column layout (links | contact | map embed)
+- [x] T10 [P] Create `website/src/components/layout/Footer.test.tsx` testing contact display and map iframe
+- [x] T11 Create `website/src/components/shared/FloatingWhatsAppButton.tsx` (fixed bottom-right, tooltip on hover)
+- [x] T12 [P] Create `website/src/components/shared/FloatingWhatsAppButton.test.tsx` testing visibility, tooltip, click handler
+- [x] T13 Create `website/src/app/layout.tsx` wiring Navbar, Footer, FloatingWA around children
 
 **Checkpoint**: Layout complete - all pages share consistent navigation and footer
 
@@ -55,13 +55,13 @@ description: "Task list for Farmhouse Website implementation"
 
 **Purpose**: Reusable UI components used across multiple pages
 
-- [ ] T14 Create `website/src/components/ui/PricingCard.tsx` (props: tier data, isHighlighted) + test
-- [ ] T15 [P] Create `website/src/components/ui/PricingCard.test.tsx` testing weekday/Friday/weekend display, highlighting
-- [ ] T16 Create `website/src/components/ui/FacilityCard.tsx` (icon, name, description) + test
-- [ ] T17 [P] Create `website/src/components/ui/FacilityCard.test.tsx` testing icon rendering and responsive layout
-- [ ] T18 Create `website/src/components/shared/SectionCTA.tsx` (reusable banner for page bottoms) + test
-- [ ] T19 [P] Create `website/src/components/shared/StatsCounter.tsx` (count-up on scroll, Intersection Observer) + test
-- [ ] T20 [P] Create `website/src/components/shared/StatsCounter.test.tsx` testing scroll detection and count-up animation
+- [x] T14 Create `website/src/components/ui/PricingCard.tsx` (props: tier data, isHighlighted) + test
+- [x] T15 [P] Create `website/src/components/ui/PricingCard.test.tsx` testing weekday/Friday/weekend display, highlighting
+- [x] T16 Create `website/src/components/ui/FacilityCard.tsx` (icon, name, description) + test
+- [x] T17 [P] Create `website/src/components/ui/FacilityCard.test.tsx` testing icon rendering and responsive layout
+- [x] T18 Create `website/src/components/shared/SectionCTA.tsx` (reusable banner for page bottoms) + test
+- [x] T19 [P] Create `website/src/components/shared/StatsCounter.tsx` (count-up on scroll, Intersection Observer) + test
+- [x] T20 [P] Create `website/src/components/shared/StatsCounter.test.tsx` testing scroll detection and count-up animation
 
 **Checkpoint**: Shared components complete - reusable building blocks ready for pages
 
