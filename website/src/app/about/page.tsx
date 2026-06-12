@@ -7,6 +7,13 @@ import { PHONE } from "@/lib/constants";
 import { playfairDisplay } from "@/lib/fonts";
 import { inter } from "@/lib/fonts";
 
+// Lucide icons accept size and className props
+type LucideIconComponent = React.FC<React.SVGProps<SVGSVGElement>> & {
+  displayName?: string;
+  size?: number;
+  color?: string;
+};
+
 import StatsCounter from "@/components/shared/StatsCounter";
 import SectionCTA from "@/components/shared/SectionCTA";
 
@@ -125,7 +132,8 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => {
               const iconKey = value.icon as keyof typeof LucideIcons;
-              const Icon = LucideIcons[iconKey] as React.FC<React.SVGProps<SVGSVGElement>>;
+              // Type assertion to extend the icon type with size and className props
+              const Icon = LucideIcons[iconKey] as React.FC<{ size?: number; className?: string }>;
               return (
                 <div
                   key={value.id}

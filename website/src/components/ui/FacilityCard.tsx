@@ -18,7 +18,8 @@ export default function FacilityCard({
   image,
 }: FacilityCardProps) {
   // Get the icon component from lucide-react
-  const IconComponent = LucideIcons[iconName] as React.FC<SVGProps<SVGSVGElement>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const IconComponent = (LucideIcons as any)[iconName] as React.FC<{ size?: number; className?: string }>;
 
   if (!IconComponent) {
     console.warn(`Icon "${iconName}" not found in lucide-react`);

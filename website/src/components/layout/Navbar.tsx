@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { buildWhatsAppURL } from "@/lib/wa";
+import { PHONE } from "@/lib/constants";
 
 const navLinks = [
   { name: "Home", href: "/" },

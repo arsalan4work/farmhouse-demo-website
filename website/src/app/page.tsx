@@ -135,7 +135,7 @@ export default function Home() {
               { icon: "Trophy", label: "Cricket", desc: "Ground Available" },
             ].map((item, index) => {
               const iconKey = item.icon as keyof typeof LucideIcons;
-              const Icon = LucideIcons[iconKey] as React.FC<React.SVGProps<SVGSVGElement>>;
+              const Icon = LucideIcons[iconKey] as React.FC<{ size?: number; className?: string }>;
               return (
                 <div key={index} className="flex flex-col items-center text-white">
                   <Icon size={32} className="mb-2 text-[#1B3A2D]" />
@@ -158,7 +158,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {occasions.map((occasion) => {
               const iconKey = occasion.icon as keyof typeof LucideIcons;
-              const Icon = LucideIcons[iconKey] as React.FC<React.SVGProps<SVGSVGElement>>;
+              const Icon = LucideIcons[iconKey] as React.FC<{ size?: number; className?: string }>;
 
               return (
                 <div
