@@ -73,46 +73,46 @@ description: "Task list for Farmhouse Website implementation"
 
 ### Home Page (Priority: P1) 🎯 MVP
 
-- [ ] T21 Create `website/src/app/page.tsx` with hero section (main image, headline, WA CTA)
-- [ ] T22 [P] Create `website/src/app/page.test.tsx` - happy path testing hero display and CTA click
-- [ ] T23 Create highlights bar component (capacity, facilities, location)
-- [ ] T24 Create occasion cards (wedding, banquet, corporate, photoshoot)
-- [ ] T25 Create pricing preview (3 tier cards from constants)
-- [ ] T26 Create social proof section (testimonials)
+- [x] T21 Create `website/src/app/page.tsx` with hero section (main image, headline, WA CTA)
+- [x] T22 [P] Create `website/src/app/page.test.tsx` - happy path testing hero display and CTA click
+- [x] T23 Create highlights bar component (capacity, facilities, location)
+- [x] T24 Create occasion cards (wedding, banquet, corporate, photoshoot)
+- [x] T25 Create pricing preview (3 tier cards from constants)
+- [x] T26 Create social proof section (testimonials)
 
 ### Facilities Page (Priority: P2)
 
-- [ ] T27 Create `website/src/app/facilities/page.tsx` with grid of 8-9 facility cards
-- [ ] T28 [P] Create `website/src/app/facilities/page.test.tsx` testing grid layout and mobile responsiveness
-- [ ] T29 Create pool highlight section component
-- [ ] T30 Create category filter (indoor/outdoor/pool)
+- [x] T27 Create `website/src/app/facilities/page.tsx` with grid of 8-9 facility cards
+- [x] T28 [P] Create `website/src/app/facilities/page.test.tsx` testing grid layout and mobile responsiveness
+- [x] T29 Create pool highlight section component
+- [x] T30 Create category filter (indoor/outdoor/pool)
 
 ### Booking Page (Priority: P1)
 
-- [ ] T31 Create `website/src/app/booking/page.tsx` with full pricing cards (Weekdays, Friday, Weekend)
-- [ ] T32 [P] Create `website/src/app/booking/page.test.tsx` testing pricing display and FAQ accordion
-- [ ] T33 Create 3-step how-to section
-- [ ] T34 Create FAQ accordion component (click to expand/collapse)
-- [ ] T35 Create corporate inquiry callout component
+- [x] T31 Create `website/src/app/booking/page.tsx` with full pricing cards (Weekdays, Friday, Weekend)
+- [x] T32 [P] Create `website/src/app/booking/page.test.tsx` testing pricing display and FAQ accordion
+- [x] T33 Create 3-step how-to section
+- [x] T34 Create FAQ accordion component (click to expand/collapse)
+- [x] T35 Create corporate inquiry callout component
 
 ### About Page (Priority: P2)
 
-- [ ] T36 Create `website/src/app/about/page.tsx` with story section
-- [ ] T37 [P] Create `website/src/app/about/page.test.tsx` testing story content and stats display
-- [ ] T38 Create stats counter (years active, events hosted, satisfaction %)
-- [ ] T39 Create values cards (3-4 core values with icons)
+- [x] T36 Create `website/src/app/about/page.tsx` with story section
+- [x] T37 [P] Create `website/src/app/about/page.test.tsx` testing story content and stats display
+- [x] T38 Create stats counter (years active, events hosted, satisfaction %)
+- [x] T39 Create values cards (3-4 core values with icons)
 
 ### Contact Page (Priority: P1)
 
-- [ ] T40 Create `website/src/app/contact/page.tsx` with contact details
-- [ ] T41 [P] Create `website/src/app/contact/page.test.tsx` testing WhatsApp form and map iframe
-- [ ] T42 Create WhatsApp contact form (name, date, guests, message)
-- [ ] T43 Create full-width Google Maps iframe embed
+- [x] T40 Create `website/src/app/contact/page.tsx` with contact details
+- [x] T41 [P] Create `website/src/app/contact/page.test.tsx` testing WhatsApp form and map iframe
+- [x] T42 Create WhatsApp contact form (name, date, guests, message)
+- [x] T43 Create full-width Google Maps iframe embed
 
 ### Privacy Policy Page (Priority: P1)
 
-- [ ] T44 Create `website/src/app/privacy/page.tsx` with static privacy policy content
-- [ ] T45 [P] Create `website/src/app/privacy/page.test.tsx` testing content rendering
+- [x] T44 Create `website/src/app/privacy/page.tsx` with static privacy policy content
+- [x] T45 [P] Create `website/src/app/privacy/page.test.tsx` testing content rendering
 
 ---
 

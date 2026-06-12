@@ -7,54 +7,46 @@
 export const PHONE = "923312499496" as const;
 export const WHATSAPP_COUNTRY_CODE = "92" as const;
 
-// WhatsApp Pre-filled Message Template
-export const WA_MSG_TEMPLATE = `Assalamualaikum,
-
-Mujhe apka farmhouse book krwana ha
-
-Date: {date}
-Guests: {guests}
-
-Ap details bata skty hn?`;
-
 // Google Maps Embed URL
 export const MAP_URL = "https://maps.google.com/maps?q=Firpo+Farmhouse&output=embed" as const;
 
-// Pricing Tiers (per constitution: constants.ts)
-// Rates in PKR (Pakistani Rupees)
-export const PRICES = {
+// Royal Dark Blue Color Palette
+export const COLORS = {
+  primary: "#1B3A5C", // Royal dark blue (replaces #1B3A2D)
+  accent: "#D4A843", // Amber/gold (kept as is for contrast)
+  highlight: "#6366F1", // Royal blue for buttons (replaces #25D366)
+  secondary: "#4F46E5", // Darker royal blue for gradients
+  light: "#F3F4F6", // Light background
+} as const;
+
+// Package Data with Time Slots and Rates
+export const PACKAGES = {
   weekdays: {
     id: "weekdays",
-    label: "Weekdays",
-    period: "Sun Night - Thu Day",
+    label: "WEEKDAYS",
+    period: "SUNDAY (NIGHT) THURSDAY (DAY)",
     highlighted: false,
-    rates: {
-      day: 45000,
-      night: 55000,
-      dayAndNight: 85000,
-    },
+    day: { time: "9AM - 6PM", price: 45000 },
+    night: { time: "8PM - 7AM", price: 55000 },
+    dayNight: { time: "8PM - 4PM", price: 85000 },
   },
   friday: {
     id: "friday",
-    label: "Friday",
-    period: "Thu Night - Sat Day",
+    label: "FRIDAY",
+    period: "THURSDAY (NIGHT) SATURDAY (DAY)",
     highlighted: true,
-    rates: {
-      day: 55000,
-      night: 60000,
-      dayAndNight: 95000,
-    },
+    day: { time: "9AM - 6PM", price: 55000 },
+    night: { time: "8PM - 7AM", price: 60000 },
+    dayNight: { time: "8PM - 4PM", price: 95000 },
   },
   weekend: {
     id: "weekend",
-    label: "Weekends",
-    period: "Sat Night - Sun Day",
+    label: "WEEKENDS",
+    period: "SATURDAY (NIGHT) SUNDAY (DAY)",
     highlighted: false,
-    rates: {
-      day: 60000,
-      night: 70000,
-      dayAndNight: 110000,
-    },
+    day: { time: "9AM - 6PM", price: 60000 },
+    night: { time: "8PM - 7AM", price: 70000 },
+    dayNight: { time: "8PM - 4PM", price: 110000 },
   },
 } as const;
 
@@ -71,7 +63,7 @@ export const FACILITIES = [
     id: "swimming-pool",
     name: "Swimming Pool",
     description: "Outdoor swimming pool surrounded by greenery",
-    iconName: "WaveSquare",
+    iconName: "Waves",
   },
   {
     id: "cricket-ground",
@@ -83,7 +75,7 @@ export const FACILITIES = [
     id: "bbq-patio",
     name: "BBQ Patio",
     description: "Outdoor BBQ area with seating for large groups",
-    iconName: "FlameKindle",
+    iconName: "Flame",
   },
   {
     id: "parking",
@@ -101,7 +93,7 @@ export const FACILITIES = [
     id: "outdoor-sitting",
     name: "Outdoor Sitting",
     description: "Comfortable outdoor seating areas",
-    iconName: "ChairGround",
+    iconName: "Sofa",
   },
   {
     id: "indoor-games",
@@ -118,20 +110,24 @@ export const FACILITIES = [
 ] as const;
 
 // Type exports for type safety
-export type PricingTierId = keyof typeof PRICES;
+export type PackageId = keyof typeof PACKAGES;
 export type FacilityId = typeof FACILITIES[number]["id"];
 
+// Export types for time slot
+export type TimeSlot = {
+  time: string;
+  price: number;
+};
+
 // Export types
-export type PricingTier = {
-  id: PricingTierId;
+export type Package = {
+  id: PackageId;
   label: string;
   period: string;
   highlighted: boolean;
-  rates: {
-    day: number;
-    night: number;
-    dayAndNight: number;
-  };
+  day: TimeSlot;
+  night: TimeSlot;
+  dayNight: TimeSlot;
 };
 
 export type Facility = {

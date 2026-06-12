@@ -50,7 +50,7 @@ export default function StatsCounter({ value, label }: StatsCounterProps) {
   return (
     <div ref={counterRef} className="flex flex-col items-center justify-center">
       <span
-        className={`mb-2 font-bold text-[#D4A843] ${playfairDisplay.className}`}
+        className={`mb-2 font-bold text-[#6366F1] ${playfairDisplay.className}`}
         style={{ fontSize: "3rem" }}
       >
         {hasAnimated ? count : 0}+

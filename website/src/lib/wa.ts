@@ -52,3 +52,14 @@ export function buildWhatsAppURLWithTemplate(
 
   return buildWhatsAppURL(phone, filledMessage);
 }
+
+/**
+ * Type for booking form data
+ */
+export interface BookingFormData {
+  name: string;
+  phone: string;
+  date: string;
+  guests: number;
+  message?: string;
+}

@@ -2,18 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle } from "lucide-react";
-import { buildWhatsAppURL } from "@/lib/wa";
-import { PHONE } from "@/lib/constants";
+import Link from "next/link";
 
 export default function FloatingWhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const tooltipRef = useRef<HTMLDivElement>(null);
-
-  const handleWhatsAppClick = () => {
-    const url = buildWhatsAppURL(PHONE, "Hi, I want to book the farmhouse");
-    window.open(url, "_blank");
-  };
 
   // Check if user prefers reduced motion
   const prefersReducedMotion =
@@ -42,21 +36,21 @@ export default function FloatingWhatsAppButton() {
   return (
     <>
       {/* Floating Button */}
-      <button
+      <Link
         id="wa-float-btn"
-        onClick={handleWhatsAppClick}
+        href="/booking"
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         onFocus={() => setShowTooltip(true)}
         onBlur={() => setShowTooltip(false)}
-        className="fixed bottom-6 right-6 z-50 h-[56px] w-[56px] rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+        className="fixed bottom-6 right-6 z-50 flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
         aria-label="Chat with us on WhatsApp"
       >
         <MessageCircle className="h-8 w-8" />
         {isHovered && !prefersReducedMotion && (
           <span className="absolute inset-0 rounded-full bg-[#25D366]/50 animate-pulse" />
         )}
-      </button>
+      </Link>
 
       {/* Tooltip */}
       {showTooltip && (

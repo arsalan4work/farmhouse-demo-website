@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { buildWhatsAppURL } from "@/lib/wa";
-import { PHONE } from "@/lib/constants";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -44,9 +42,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-2xl font-serif font-bold text-[#1B3A2D]"
+            className="text-2xl font-serif font-bold text-[#1B3A5C]"
           >
-            FARM NAME
+            Sunny FarmHouse
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,15 +56,15 @@ export default function Navbar() {
                 className="group flex items-center text-sm font-medium text-gray-700 transition-colors hover:text-gray-900"
               >
                 {link.name}
-                <span className="ml-0 h-0.5 w-0 bg-[#D4A843] transition-all duration-300 group-hover:w-full" />
+                <span className="ml-0 h-0.5 w-0 bg-[#6366F1] transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
-            <button
-              onClick={handleWhatsAppClick}
-              className="rounded-full bg-[#25D366] px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-md"
+            <Link
+              href="/booking"
+              className="rounded-full bg-[#6366F1] px-6 py-2 text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-md"
             >
               Book Now
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,21 +86,19 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#D4A843]"
+                className="block rounded-lg px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#6366F1]"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <button
-              onClick={() => {
-                handleWhatsAppClick();
-                setIsOpen(false);
-              }}
-              className="w-full rounded-lg bg-[#25D366] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-green-600"
+            <Link
+              href="/booking"
+              className="block w-full rounded-lg bg-[#6366F1] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-[#4F46E5]"
+              onClick={() => setIsOpen(false)}
             >
               Book Now
-            </button>
+            </Link>
           </div>
         </div>
       )}

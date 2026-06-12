@@ -1,20 +1,14 @@
 "use client";
 
-import { PricingTier } from "@/lib/constants";
-import { buildWhatsAppURL } from "@/lib/wa";
-import { interMono } from "@/lib/fonts";
+import { Package } from "@/lib/constants";
+import { inter, interMono } from "@/lib/fonts";
 
 type PricingCardProps = {
-  tier: PricingTier;
+  packageData: Package;
   bookMsg: string;
 };
 
-export default function PricingCard({ tier, bookMsg }: PricingCardProps) {
-  const whatsappUrl = buildWhatsAppURL(
-    "923312499496",
-    `Assalamualaikum, Mujhe apka farmhouse book krwana ha. Date: [Date] Guests: [Guests]`
-  );
-
+export default function PricingCard({ packageData, bookMsg }: PricingCardProps) {
   return (
     <div
       className={`flex flex-col items-center rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl`}
@@ -22,59 +16,63 @@ export default function PricingCard({ tier, bookMsg }: PricingCardProps) {
       {/* Title Badge */}
       <div
         className={`mb-4 rounded-full px-4 py-2 text-sm font-semibold text-white ${
-          tier.highlighted ? "bg-[#D4A843]" : "bg-[#1B3A2D]"
+          packageData.highlighted ? "bg-[#6366F1]" : "bg-[#1B3A5C]"
         }`}
       >
-        {tier.label}
+        {packageData.label}
       </div>
 
       {/* Period Text */}
-      <p className="mb-6 text-center text-sm text-gray-500">{tier.period}</p>
+      <p className="mb-6 text-center text-sm text-gray-500">{packageData.period}</p>
 
-      {/* 3 Rows */}
-      <div className="w-full space-y-4">
-        {/* Row 1: Day */}
-        <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-          <span className="text-gray-700">Day</span>
+      {/* Time Slots Display */}
+      <div className="w-full space-y-3 mb-6">
+        {/* Day Rate */}
+        <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+          <div>
+            <span className="font-semibold text-gray-900 block">DAY</span>
+            <span className="text-xs text-gray-500">{packageData.day.time}</span>
+          </div>
           <div className="flex flex-col items-end">
-            <span className={`font-mono text-2xl text-[#1B3A2D]`}>
-              Rs. {tier.rates.day.toLocaleString()}
+            <span className={`font-mono text-xl text-[#1B3A5C]`}>
+              Rs. {packageData.day.price.toLocaleString()}
             </span>
-            <span className="text-xs text-gray-500">day-only</span>
           </div>
         </div>
 
-        {/* Row 2: Night */}
-        <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-          <span className="text-gray-700">Night</span>
+        {/* Night Rate */}
+        <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+          <div>
+            <span className="font-semibold text-gray-900 block">NIGHT</span>
+            <span className="text-xs text-gray-500">{packageData.night.time}</span>
+          </div>
           <div className="flex flex-col items-end">
-            <span className={`font-mono text-2xl text-[#1B3A2D]`}>
-              Rs. {tier.rates.night.toLocaleString()}
+            <span className={`font-mono text-xl text-[#1B3A5C]`}>
+              Rs. {packageData.night.price.toLocaleString()}
             </span>
-            <span className="text-xs text-gray-500">night-only</span>
           </div>
         </div>
 
-        {/* Row 3: Day + Night */}
+        {/* Day + Night Rate */}
         <div className="flex items-center justify-between pb-2">
-          <span className="font-semibold text-gray-900">Day + Night</span>
+          <div>
+            <span className="font-semibold text-gray-900 block">DAY + NIGHT</span>
+            <span className="text-xs text-gray-500">{packageData.dayNight.time}</span>
+          </div>
           <div className="flex flex-col items-end">
-            <span className={`font-mono text-2xl text-[#1B3A2D]`}>
-              Rs. {tier.rates.dayAndNight.toLocaleString()}
+            <span className={`font-mono text-xl text-[#1B3A5C]`}>
+              Rs. {packageData.dayNight.price.toLocaleString()}
             </span>
-            <span className="text-xs text-gray-500">combined rate</span>
           </div>
         </div>
       </div>
 
       {/* Book Now Button */}
       <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-6 w-full rounded-full bg-[#25D366] px-6 py-3 text-center font-semibold text-white transition-all hover:bg-[#20bd5a] focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2"
+        href="/booking"
+        className="mt-6 w-full rounded-full bg-[#6366F1] px-6 py-3 text-center font-semibold text-white transition-all hover:bg-[#4F46E5] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-offset-2"
       >
-        Book Now
+        {bookMsg}
       </a>
     </div>
   );
